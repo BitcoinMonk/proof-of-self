@@ -1,4 +1,8 @@
-# Project Vision: Proof-of-Self
+# Proof-of-Self: Project Vision
+
+**Version**: 1.0
+**Last Updated**: November 16, 2025
+**Status**: Definitive Vision
 
 ## What This Is
 
@@ -305,52 +309,55 @@ Every piece of content gets a unique ID based on its content + source:
    - Add only new content since last index
    - AI: "Added 150 new tweets since last update."
 
-## Development Phases
+## Development Approach
 
-### Phase 1: Foundation (Next 2 Weeks) - CURRENT REFACTOR
-**Goal**: Universal knowledge base that works with any content
+**Current Phase: Universal Foundation (2-3 weeks)**
 
-- [ ] Refactor database to documents-first architecture
-- [ ] Implement universal search (remove Twitter-specificity)
-- [ ] Create `add_to_knowledge_base` MCP tool
-- [ ] Create `search_knowledge_base` MCP tool
-- [ ] Create `save_to_knowledge_base` MCP tool
-- [ ] Test with diverse content (Twitter, PDFs, notes)
-- [ ] Document MCP tool usage for AI
+We're refactoring from Twitter-focused to truly universal architecture:
 
-### Phase 2: Rich Content Support (Months 2-3)
-**Goal**: Support all major content types
+### Phase 1: Universal Foundation
+**Goal**: Working generic knowledge base
 
-- [ ] PDF text extraction with metadata
-- [ ] ePub/mobi ebook support
-- [ ] Web page archiving
-- [ ] Email parsing (mbox, maildir)
-- [ ] Image OCR (optional)
-- [ ] Audio transcription (optional)
+- Refactor database to documents-first (Twitter just another source)
+- Implement universal MCP tools
+- Add PDF support with chunking
+- Complete rebrand to Proof-of-Self
+- Test with diverse content types
 
-### Phase 3: Intelligent Features (Months 4-6)
-**Goal**: AI understands your perspectives
+### Phase 2: Real-World Testing (1-2 months)
+**Goal**: Use it daily, learn what matters
 
-- [ ] Perspective extraction
-  - Analyze your writings on topics
-  - Summarize your consistent viewpoints
-  - Auto-update as you write more
+- Index diverse content (books, notes, archives)
+- Daily usage with Claude
+- More adapters (ePub, email, web)
+- Refine based on actual needs
+- Iterate on search quality
 
-- [ ] Semantic search
-  - Embeddings-based similarity
-  - "Find content about X even if it doesn't mention X"
+### Phase 3: Advanced Features (3-6 months, optional)
+**Goal**: Add sophistication only if needed
 
-- [ ] Connection discovery
-  - How your thoughts evolved over time
-  - Related ideas across different sources
+- **Semantic search** (if keyword search insufficient)
+  - Local embeddings (all-MiniLM-L6-v2)
+  - Hybrid keyword + semantic search
+  - "Find similar" functionality
 
-### Phase 4: Knowledge Graph (Months 7-12)
-**Goal**: Deep understanding of your intellectual network
+- **Knowledge graph** (if valuable)
+  - Entity extraction
+  - Relationship discovery
+  - Idea evolution tracking
 
-- [ ] Entity extraction (people, concepts, places)
-- [ ] Relationship mapping
-- [ ] Visual knowledge graph
-- [ ] Temporal tracking of idea evolution
+- **Perspective extraction** (if useful)
+  - Analyze your viewpoints on topics
+  - Track opinion changes over time
+  - Help AI understand your positions
+
+### Future: Multi-Device (Long-term vision)
+**Goal**: Access from any device on local network
+
+- Home server deployment
+- Mobile apps for thought capture
+- Multi-device sync
+- Still privacy-first (local network only)
 
 ## Success Criteria
 
@@ -413,26 +420,30 @@ Like "proof-of-work" in Bitcoin represents computational effort, "proof-of-self"
 
 ## Current State (November 2025)
 
-### What Works ✅
+### Project Status: Phase 1 - Universal Foundation
+
+**What Works ✅**
+- SQLite + FTS5 full-text search (fast, local)
 - MCP server infrastructure
-- Twitter archive indexing
-- Basic file indexing (markdown, text)
-- Full-text search (SQLite FTS5)
+- Twitter archive adapter (test data source)
+- 8,349 tweets successfully indexed
 - Adapter pattern for extensibility
 
-### What's Wrong ❌
-- Architecture is Twitter-first (needs refactor)
-- Search is Twitter-specific (needs generalization)
-- No explicit `add` MCP tool
-- Documentation emphasizes Twitter
-- Missing deduplication logic
+**Refactoring In Progress 🚧**
+- Database: Moving to documents-first schema
+- MCP Tools: Creating universal tools (not Twitter-specific)
+- Chunking: Implementing for large documents (books)
+- Rebrand: Completing "Proof-of-Self" throughout codebase
+- Architecture: Following research-based decisions
 
-### What We're Building 🚧
-- Documents-first database schema
-- Universal search across all content types
-- Clean MCP tool interface for AI
-- Support for PDFs and ebooks
-- Proper content management
+**Decisions Made ✓**
+- **Storage**: SQLite + FTS5 (proven, scales to 100k+ docs)
+- **Chunking**: 500-1000 tokens, 10-20% overlap, semantic
+- **Semantic search**: Deferred to Phase 3 (if needed)
+- **Approach**: Refactor first, then enhance
+- **Interface**: MCP-first (AI is the interface, minimal CLI)
+
+See **[ARCHITECTURE.md](ARCHITECTURE.md)** for technical decisions and **[ROADMAP.md](ROADMAP.md)** for detailed plan.
 
 ## Design Principles
 

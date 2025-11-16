@@ -140,20 +140,48 @@ class TwitterAdapter(BaseAdapter):
             if exclude_retweets and is_retweet:
                 continue
 
-            # Extract data
-            tweet_data = {
-                "type": "tweet",
-                "tweet_id": tweet.get("id_str"),
-                "user_id": self.username,
-                "created_at": created_at,
-                "full_text": tweet.get("full_text", ""),
-                "is_retweet": is_retweet,
-                "is_reply": bool(tweet.get("in_reply_to_status_id_str")),
-                "reply_to_tweet_id": tweet.get("in_reply_to_status_id_str"),
-                "reply_to_user": tweet.get("in_reply_to_screen_name"),
+            # Extract entities and tags
+            entities = self._extract_entities(tweet.get("entities", {}))
+            tags = entities.get("hashtags", []) if entities else []
+
+            # Determine content type
+            if is_retweet:
+                content_type = "retweet"
+            elif tweet.get("in_reply_to_status_id_str"):
+                content_type = "reply"
+            else:
+                content_type = "tweet"
+
+            # Build metadata
+            tweet_id = tweet.get("id_str")
+            metadata = {
+                "tweet_id": tweet_id,
+                "username": self.username,
                 "retweet_count": int(tweet.get("retweet_count", 0)),
                 "favorite_count": int(tweet.get("favorite_count", 0)),
-                "entities": self._extract_entities(tweet.get("entities", {})),
+                "is_retweet": is_retweet,
+                "is_reply": bool(tweet.get("in_reply_to_status_id_str")),
+            }
+
+            if tweet.get("in_reply_to_status_id_str"):
+                metadata["reply_to_tweet_id"] = tweet.get("in_reply_to_status_id_str")
+            if tweet.get("in_reply_to_screen_name"):
+                metadata["reply_to_user"] = tweet.get("in_reply_to_screen_name")
+            if entities:
+                metadata["entities"] = entities
+
+            # Yield universal document format
+            tweet_data = {
+                "type": "document",
+                "source_type": "twitter",
+                "content_type": content_type,
+                "title": None,  # Tweets don't have titles
+                "author": self.username,
+                "content": tweet.get("full_text", ""),
+                "source_path": f"twitter://{self.username}/{tweet_id}",
+                "metadata": metadata,
+                "tags": tags,
+                "created_at": created_at,
             }
 
             tweet_count += 1

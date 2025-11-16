@@ -112,8 +112,8 @@ AI learns YOUR perspectives from YOUR writings, helps you create in YOUR style.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/proof-of-monk.git
-cd proof-of-monk
+git clone https://github.com/your-username/proof-of-self.git
+cd proof-of-self
 
 # Create virtual environment
 python3 -m venv venv
@@ -123,7 +123,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -e .
 
 # Initialize database
-proof-of-monk init
+proof-of-self init
 
 # Configure MCP (for Claude Desktop)
 # Add to your Claude Desktop config:
@@ -131,9 +131,9 @@ proof-of-monk init
   "mcpServers": {
     "proof-of-self": {
       "command": "/path/to/venv/bin/python",
-      "args": ["-m", "proof_of_monk.server"],
+      "args": ["-m", "proof_of_self.server"],
       "env": {
-        "PROOF_OF_MONK_DB": "/path/to/data/proof-of-monk.db"
+        "PROOF_OF_SELF_DB": "/path/to/data/proof-of-self.db"
       }
     }
   }
@@ -143,7 +143,7 @@ proof-of-monk init
 # Now you can talk to Claude and it has access to your knowledge base!
 ```
 
-For detailed setup, see [docs/setup.md](docs/setup.md).
+**Note**: Full setup guide coming after Phase 1 refactoring completes.
 
 ## Usage
 
@@ -183,41 +183,47 @@ See full tool documentation in [docs/mcp-tools.md](docs/mcp-tools.md) (coming so
 
 ## Current Status
 
-**🔴 IN ACTIVE REFACTORING** (November 2025)
+**🔴 PHASE 1: UNIVERSAL FOUNDATION** (November 2025)
 
-The original implementation was Twitter-focused. We're currently refactoring to be truly universal:
+**Project Direction:**
+- **Rebranded** from "proof-of-monk" to "Proof-of-Self"
+- **Universal** knowledge base (not Twitter-specific)
+- **MCP-first** interaction (AI is the interface, not CLI)
+- **Documents-first** architecture (any content type is equal)
 
-**✅ What Works:**
-- MCP server infrastructure
-- Full-text search (SQLite FTS5)
-- Twitter archive indexing
-- Basic file indexing
+**What Works:**
+- ✅ SQLite + FTS5 full-text search
+- ✅ MCP server infrastructure
+- ✅ Twitter archive adapter (test data source)
+- ✅ 8,349 tweets successfully indexed
 
-**🚧 Being Refactored:**
-- Database schema (moving to documents-first)
-- Search interface (removing Twitter-specificity)
-- CLI commands (simplifying to 'add')
-- Documentation (clarifying universal vision)
+**Phase 1 Goals (2-3 weeks):**
+- 🚧 Refactor database to documents-first schema
+- 🚧 Implement universal MCP tools
+- 🚧 Add PDF support with chunking
+- 🚧 Complete rebrand throughout codebase
+- 🚧 Remove Twitter-specific tools/CLI
 
-**📋 Coming Soon:**
-- PDF text extraction
-- ePub/mobi support
-- Improved deduplication
-- Semantic search
-- Perspective extraction
+**After Phase 1:**
+- Phase 2: Real-world testing with diverse content (1-2 months)
+- Phase 3: Optional semantic search and advanced features (3-6 months)
 
-See [docs/roadmap.md](docs/roadmap.md) for full development plan.
+See **[ROADMAP.md](ROADMAP.md)** for detailed development plan.
 
 ## Documentation
 
-- **[PROJECT_VISION.md](PROJECT_VISION.md)** - **START HERE!** Understand the vision
-- **[AUDIT_REPORT.md](AUDIT_REPORT.md)** - Comprehensive code audit and recommendations
-- **[docs/](docs/)** - Full documentation
-  - [quickstart.md](docs/quickstart.md) - Quick installation
-  - [setup.md](docs/setup.md) - Detailed setup
-  - [architecture.md](docs/architecture.md) - Code structure
-  - [roadmap.md](docs/roadmap.md) - Development plan
-  - [status.md](docs/status.md) - Current status
+### Essential Reading
+
+- **[PROJECT_VISION.md](PROJECT_VISION.md)** - **START HERE!** Overall vision and philosophy
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Technical architecture and design decisions
+- **[ROADMAP.md](ROADMAP.md)** - Development phases and timeline
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - How to contribute (after Phase 1)
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history
+
+### Additional Documentation
+
+- **[docs/](docs/)** - Full documentation (see [docs/README.md](docs/README.md) for navigation)
+- **[docs/archive/](docs/archive/)** - Historical documents and deprecated features
 
 ## Use Cases
 
@@ -309,14 +315,29 @@ We welcome contributions! This project needs:
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-## Roadmap
+## Development Phases
 
-**Phase 1** (Current - Refactoring): Universal foundation
-**Phase 2** (Next 2-3 months): PDF, ePub, web content support
-**Phase 3** (4-6 months): Semantic search and perspective extraction
-**Phase 4** (7-12 months): Knowledge graph and connections
+**Phase 1: Universal Foundation** (Current - 2-3 weeks)
+- Refactor to documents-first architecture
+- Universal MCP tools
+- PDF support with chunking
+- Complete rebrand
 
-See detailed roadmap in [docs/roadmap.md](docs/roadmap.md).
+**Phase 2: Real-World Testing** (1-2 months)
+- Daily use with diverse content
+- More adapters (ePub, email)
+- Refinements based on experience
+
+**Phase 3: Advanced Features** (3-6 months, optional)
+- Semantic search (if keyword insufficient)
+- Knowledge graph (if valuable)
+- Perspective extraction
+
+**Future: Multi-Device** (Long-term vision)
+- Home server setup
+- Mobile access on local network
+
+See detailed roadmap in **[ROADMAP.md](ROADMAP.md)**.
 
 ## Philosophy
 
@@ -338,10 +359,11 @@ MIT License - See [LICENSE](LICENSE)
 
 ## Questions?
 
-- Read [PROJECT_VISION.md](PROJECT_VISION.md) for the full vision
-- Check [docs/](docs/) for documentation
-- Open an [issue](https://github.com/your-username/proof-of-monk/issues) for bugs/features
-- Join discussions in [Discussions](https://github.com/your-username/proof-of-monk/discussions)
+- Read **[PROJECT_VISION.md](PROJECT_VISION.md)** for the complete vision
+- Check **[ARCHITECTURE.md](ARCHITECTURE.md)** for technical details
+- See **[ROADMAP.md](ROADMAP.md)** for development timeline
+- Open an [issue](https://github.com/your-username/proof-of-self/issues) for bugs/features
+- Join [discussions](https://github.com/your-username/proof-of-self/discussions) for questions
 
 ---
 

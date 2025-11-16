@@ -1,13 +1,65 @@
 # Changelog
 
-All notable changes to Proof-of-Monk will be documented in this file.
+All notable changes to Proof-of-Self will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+---
+
+## [0.2.0] - 2025-11-16 - ARCHITECTURE RESET
+
+### Major Changes - Rebrand & Refocus
+
+**Project Rebrand**: "Proof-of-Monk" → "Proof-of-Self"
+- Emphasizes universal personal knowledge base (not Twitter-specific)
+- Aligns with vision: privacy-first AI memory system
+- Package will be renamed in Phase 1 implementation
+
+**Architecture Decisions**:
+- Adopted documents-first schema (Twitter as one source among many)
+- Chose SQLite + FTS5 for storage (proven, local, scales to 100k+ docs)
+- Implemented chunking strategy: 500-1000 tokens, 10-20% overlap
+- Deferred semantic search to Phase 3 (evaluate after keyword search proves itself)
+- MCP-first interaction model (AI is the interface, minimal CLI)
+
+**Documentation Overhaul**:
+- Created **ARCHITECTURE.md** - Technical architecture with research findings
+- Created **ROADMAP.md** - Unified 3-phase development plan
+- Updated **README.md** - Universal focus, clear current status
+- Updated **PROJECT_VISION.md** - Aligned with decisions
+- Archived deprecated docs to `docs/archive/`:
+  - Previous roadmap.md (phase numbering conflicts)
+  - AUDIT_REPORT.md (superseded by new plan)
+  - REFACTORING_PLAN.md (specific plan superseded)
+  - AUDIT_COMPLETE.md (temporary document)
+  - Old status.md, quickstart.md, setup.md (Twitter-focused)
+  - Old architecture.md (PROJECT_STRUCTURE.md)
+- Created **docs/archive/DEPRECATED.md** - Documents what was deprecated and why
+
+### Deprecated Features
+
+- **Inbox scanner** - Will be refactored into `add_to_knowledge_base()` MCP tool
+- **Twitter-specific MCP tools** - Will be replaced with universal equivalents
+- **CLI index commands** - MCP-first approach, AI does the indexing
+- **"Consciousness streams" concept** - Deferred pending Phase 2 research
+
+### Current Status
+
+**Phase 1 Goals (2-3 weeks)**:
+- Complete rebrand throughout codebase
+- Refactor database to documents-first schema
+- Implement universal MCP tools
+- Add PDF support with chunking
+- Remove Twitter-specific CLI commands
+
+See **ROADMAP.md** for detailed development plan.
+
+---
+
 ## [0.1.0] - 2025-11-15
 
-### Added - MVP Release
+### Added - Initial MVP (Twitter-Focused)
 
 #### Core Infrastructure
 - SQLite database with FTS5 full-text search indexing
