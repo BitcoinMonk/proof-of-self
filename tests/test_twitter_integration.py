@@ -10,9 +10,9 @@ from pathlib import Path
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from proof_of_monk.core.database import Database
-from proof_of_monk.core.indexer import Indexer
-from proof_of_monk.adapters.twitter import TwitterAdapter
+from proof_of_self.core.database import Database
+from proof_of_self.core.indexer import Indexer
+from proof_of_self.adapters.twitter import TwitterAdapter
 
 
 def test_twitter_integration():

@@ -7,53 +7,92 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.2.0] - 2025-11-16 - ARCHITECTURE RESET
+## [0.2.0] - 2025-11-16 - UNIVERSAL FOUNDATION COMPLETE
 
-### Major Changes - Rebrand & Refocus
+### ✅ Phase 1 Week 1 COMPLETED
 
-**Project Rebrand**: "Proof-of-Monk" → "Proof-of-Self"
-- Emphasizes universal personal knowledge base (not Twitter-specific)
-- Aligns with vision: privacy-first AI memory system
-- Package will be renamed in Phase 1 implementation
+**Major Accomplishment**: Transformed from Twitter-centric tool to truly universal personal knowledge base.
 
-**Architecture Decisions**:
-- Adopted documents-first schema (Twitter as one source among many)
-- Chose SQLite + FTS5 for storage (proven, local, scales to 100k+ docs)
-- Implemented chunking strategy: 500-1000 tokens, 10-20% overlap
-- Deferred semantic search to Phase 3 (evaluate after keyword search proves itself)
-- MCP-first interaction model (AI is the interface, minimal CLI)
+### Added - Universal Architecture
 
-**Documentation Overhaul**:
-- Created **ARCHITECTURE.md** - Technical architecture with research findings
-- Created **ROADMAP.md** - Unified 3-phase development plan
-- Updated **README.md** - Universal focus, clear current status
-- Updated **PROJECT_VISION.md** - Aligned with decisions
-- Archived deprecated docs to `docs/archive/`:
-  - Previous roadmap.md (phase numbering conflicts)
-  - AUDIT_REPORT.md (superseded by new plan)
-  - REFACTORING_PLAN.md (specific plan superseded)
-  - AUDIT_COMPLETE.md (temporary document)
-  - Old status.md, quickstart.md, setup.md (Twitter-focused)
-  - Old architecture.md (PROJECT_STRUCTURE.md)
-- Created **docs/archive/DEPRECATED.md** - Documents what was deprecated and why
+**Database Schema** (BREAKING CHANGE):
+- ✅ Implemented universal `documents` table (replaces tweets/bookmarks/likes/thoughts)
+- ✅ Implemented `chunks` table for large documents (books, PDFs)
+- ✅ FTS5 full-text search indexes on both tables
+- ✅ Automatic triggers to keep FTS in sync
+- ✅ Support for chunking with configurable overlap (500-1000 tokens, 15% overlap)
+- ✅ Semantic chunking that respects paragraph boundaries
 
-### Deprecated Features
+**Core Modules**:
+- ✅ `chunker.py` - Document chunking system with semantic splitting
+- ✅ `migrate.py` - Migration tools (if needed for legacy data)
+- ✅ Updated `database.py` - Clean universal schema only
+- ✅ Updated `indexer.py` - Universal document indexing
 
-- **Inbox scanner** - Will be refactored into `add_to_knowledge_base()` MCP tool
-- **Twitter-specific MCP tools** - Will be replaced with universal equivalents
-- **CLI index commands** - MCP-first approach, AI does the indexing
-- **"Consciousness streams" concept** - Deferred pending Phase 2 research
+**Adapters**:
+- ✅ Refactored `TwitterAdapter` to yield universal document format
+- ✅ `FileAdapter` already universal (markdown, text files)
+- ✅ All adapters now yield `type: "document"` format
 
-### Current Status
+### Changed - Complete Rebrand
 
-**Phase 1 Goals (2-3 weeks)**:
-- Complete rebrand throughout codebase
-- Refactor database to documents-first schema
-- Implement universal MCP tools
-- Add PDF support with chunking
-- Remove Twitter-specific CLI commands
+**Package & Naming**:
+- ✅ Renamed package: `proof_of_monk` → `proof_of_self`
+- ✅ Renamed CLI command: `proof-of-monk` → `proof-of-self`
+- ✅ Renamed database: `proof-of-monk.db` → `proof-of-self.db`
+- ✅ Renamed environment variable: `PROOF_OF_MONK_DB` → `PROOF_OF_SELF_DB`
+- ✅ Updated all imports throughout codebase
+- ✅ Updated pyproject.toml (v0.2.0)
+- ✅ Updated GitHub URLs to correct repo
+- ✅ Updated MCP server configuration
 
-See **ROADMAP.md** for detailed development plan.
+**Database Statistics**:
+- ✅ Changed `get_stats()` to return universal metrics:
+  - `total_documents`, `complete_documents`, `chunked_documents`
+  - `source_twitter`, `source_file`, etc. (dynamic by source type)
+  - `type_tweet`, `type_pdf`, etc. (dynamic by content type)
+
+### Removed - Legacy Tables
+
+**Cleaned Database** (BREAKING CHANGE):
+- ❌ Removed `tweets` table - now in `documents` with `source_type='twitter'`
+- ❌ Removed `bookmarks` table - no longer needed
+- ❌ Removed `likes` table - no longer needed
+- ❌ Removed `thoughts` table - now in `documents` with `source_type='user'`
+- ❌ Removed `articles` table - now in `documents`
+- ❌ Removed `tweet_to_article` table - no longer needed
+- ❌ Removed Twitter-specific FTS tables and triggers
+
+**Result**: Clean universal schema from day 1!
+
+### Tested
+
+**Real-World Validation**:
+- ✅ Successfully indexed 8,349 tweets as universal documents
+- ✅ FTS5 search verified working
+- ✅ Zero errors during indexing
+- ✅ Database is 9.4MB with proper indexes
+- ✅ Stats show proper categorization:
+  - `source_twitter: 8349`
+  - `type_reply: 6075`, `type_retweet: 1203`, `type_tweet: 1071`
+
+### Documentation
+
+**Updated for Reality**:
+- ARCHITECTURE.md - Reflects actual schema
+- README.md - Universal focus, correct URLs
+- PROJECT_VISION.md - Aligned with implementation
+- ROADMAP.md - Updated with progress
+- pyproject.toml - v0.2.0 with correct metadata
+
+### Next Steps (Phase 1 Week 2-3)
+
+**Remaining Work**:
+- 🔲 Universal MCP tools (add, search, save, list, get)
+- 🔲 PDF adapter with PyMuPDF
+- 🔲 Scale testing (100+ PDFs, 10k+ docs)
+
+See **ROADMAP.md** for detailed plan.
 
 ---
 

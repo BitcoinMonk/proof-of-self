@@ -13,10 +13,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 os.environ["PROOF_OF_MONK_DB"] = str(Path(__file__).parent / "test.db")
 
 import asyncio
-from proof_of_monk.core.database import Database
-from proof_of_monk.core.search import Search
-from proof_of_monk.tools.tweet_tools import register_tweet_tools
-from proof_of_monk.tools.thought_tools import register_thought_tools
+from proof_of_self.core.database import Database
+from proof_of_self.core.search import Search
+from proof_of_self.tools.tweet_tools import register_tweet_tools
+from proof_of_self.tools.thought_tools import register_thought_tools
 from mcp.server import Server
 
 

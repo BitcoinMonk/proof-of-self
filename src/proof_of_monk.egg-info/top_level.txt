@@ -1,4 +1,0 @@
-adapters
-core
-proof_of_monk
-storage

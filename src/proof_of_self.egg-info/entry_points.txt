@@ -1,0 +1,2 @@
+[console_scripts]
+proof-of-self = proof_of_self.cli:main

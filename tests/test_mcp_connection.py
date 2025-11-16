@@ -20,7 +20,7 @@ async def test_mcp():
 
     proc = await asyncio.create_subprocess_exec(
         str(Path(__file__).parent / "venv" / "bin" / "python3"),
-        str(Path(__file__).parent / "src" / "proof_of_monk" / "server.py"),
+        str(Path(__file__).parent / "src" / "proof_of_self" / "server.py"),
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,

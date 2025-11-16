@@ -9,7 +9,7 @@ We're currently transforming from a Twitter-focused tool to a universal knowledg
 ## Current Focus (Phase 1 - November 2025)
 
 We're completing foundational work:
-- Rebranding from "proof-of-monk" to "Proof-of-Self"
+- Rebranding from "proof-of-self" to "Proof-of-Self"
 - Refactoring database to documents-first architecture
 - Creating universal MCP tools (not Twitter-specific)
 - Adding PDF support with chunking

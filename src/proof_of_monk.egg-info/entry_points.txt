@@ -1,2 +1,0 @@
-[console_scripts]
-proof-of-monk = proof_of_monk.cli:main

@@ -3,8 +3,8 @@ requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "proof-of-monk"
-version = "0.1.0"
+name = "proof-of-self"
+version = "0.2.0"
 description = "Your personal AI knowledge base that respects your privacy"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -12,7 +12,7 @@ license = {text = "MIT"}
 authors = [
     {name = "BitcoinMonk", email = "bitcoinmonk21@proton.me"}
 ]
-keywords = ["ai", "knowledge-base", "privacy", "mcp", "personal-ai", "twitter-archive"]
+keywords = ["ai", "knowledge-base", "privacy", "mcp", "personal-ai", "universal-knowledge-base"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: End Users/Desktop",
@@ -47,12 +47,12 @@ embeddings = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/bitcoinmonk21/proof-of-monk"
-Repository = "https://github.com/bitcoinmonk21/proof-of-monk"
-Issues = "https://github.com/bitcoinmonk21/proof-of-monk/issues"
+Homepage = "https://github.com/BitcoinMonk/proof-of-self"
+Repository = "https://github.com/BitcoinMonk/proof-of-self"
+Issues = "https://github.com/BitcoinMonk/proof-of-self/issues"
 
 [project.scripts]
-proof-of-monk = "proof_of_monk.cli:main"
+proof-of-self = "proof_of_self.cli:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
