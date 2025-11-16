@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "proof-of-monk": {
+      "command": "venv/bin/python3",
+      "args": ["src/proof_of_monk/server.py"],
+      "env": {
+        "PYTHONPATH": "src",
+        "PROOF_OF_MONK_DB": "tests/test.db"
+      }
+    }
+  }
+}

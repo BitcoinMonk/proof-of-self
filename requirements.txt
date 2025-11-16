@@ -1,0 +1,8 @@
+# Core dependencies
+mcp>=1.0.0
+pyyaml>=6.0
+click>=8.1.0
+rich>=13.0.0
+
+# Optional dependencies
+# sentence-transformers>=2.2.0  # For semantic search (Phase 2)

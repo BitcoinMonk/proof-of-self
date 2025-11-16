@@ -1,0 +1,179 @@
+Metadata-Version: 2.4
+Name: proof-of-monk
+Version: 0.1.0
+Summary: Your personal AI knowledge base that respects your privacy
+Author-email: BitcoinMonk <bitcoinmonk21@proton.me>
+License: MIT
+Project-URL: Homepage, https://github.com/bitcoinmonk21/proof-of-monk
+Project-URL: Repository, https://github.com/bitcoinmonk21/proof-of-monk
+Project-URL: Issues, https://github.com/bitcoinmonk21/proof-of-monk/issues
+Keywords: ai,knowledge-base,privacy,mcp,personal-ai,twitter-archive
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Text Processing :: Indexing
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mcp>=0.9.0
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: click>=8.1.0
+Requires-Dist: rich>=13.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.21.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: mypy>=1.0.0; extra == "dev"
+Provides-Extra: embeddings
+Requires-Dist: sentence-transformers>=2.2.0; extra == "embeddings"
+Requires-Dist: numpy>=1.24.0; extra == "embeddings"
+Dynamic: license-file
+
+# Proof-of-Monk
+
+> Your personal AI knowledge base that actually respects your privacy.
+
+**Proof-of-Monk** is a self-hosted MCP (Model Context Protocol) server that turns your personal data into a queryable knowledge base. Index your Twitter archive, notes, documents—anything. Query it with AI. All data stays on your machine.
+
+## What It Does
+
+- 📚 **Index Your Data**: Twitter archives, markdown notes, documents, whatever you want to remember
+- 🔍 **Smart Search**: Full-text search, semantic search, find threads and connections
+- 🤖 **AI-Powered**: Works with Claude, GPT, or local models like Ollama
+- 🔐 **Privacy First**: All data stored locally, never leaves your machine
+- 🏠 **Home Network**: Run it on your server, access from any device on your network
+- 🔌 **Pluggable**: Easy to add new data sources
+
+## The Philosophy
+
+This is what personal AI should be: **yours, private, and useful.**
+
+Most AI tools want to own your data, host it in their cloud, and control your access to it. Proof-of-Monk flips that model. Your data, your machine, your AI, your rules.
+
+Think of it as **proof-of-work for your thoughts**—all the intellectual labor you've already done (tweets, notes, research) becomes immediately useful through AI, without giving up control.
+
+## Current Status
+
+**Phase 1: MVP** - Building the initial version for Twitter archives and personal note-taking. This is the "proof-of-monk" phase—testing the concept with a real use case (helping [@BitcoinMonk21](https://twitter.com/BitcoinMonk21) turn tweets into Bitcoin Signal articles).
+
+**Future: "Proof-of-Self"** - Once proven, we'll generalize this into a universal tool anyone can use with any data source.
+
+## Features (In Development)
+
+### Twitter Archive Adapter
+- Search all your tweets by keyword, date, mentions
+- Find complete threads on topics
+- Search bookmarked tweets
+- Get full context around any tweet
+- Analytics on your tweet history
+
+### Personal Knowledge Base
+- Dump thoughts and notes with tags
+- Retrieve and connect ideas
+- Track drafts and published articles
+- Link source material (tweets) to finished work
+
+### Future Data Sources
+- Markdown files / Obsidian vaults
+- Email archives
+- Chat logs (Signal, Telegram)
+- PDFs and documents
+- Voice notes and recordings
+- Custom JSON data
+
+## Why MCP?
+
+The [Model Context Protocol](https://modelcontextprotocol.io) lets AI assistants (like Claude) use external tools. By building Proof-of-Monk as an MCP server, it works seamlessly with:
+- Claude Desktop
+- Claude Code
+- Any MCP-compatible AI assistant
+- Future: Custom interfaces
+
+Your data becomes a "tool" your AI can use, without ever sending it to external servers.
+
+## How It Works
+
+```
+Your Data (Twitter, notes, etc.)
+        ↓
+    Data Adapters (parse & structure)
+        ↓
+    SQLite Database (local storage + indexing)
+        ↓
+    MCP Server (exposes search tools)
+        ↓
+    AI Assistant (queries your data)
+        ↓
+    You (get useful answers from YOUR knowledge)
+```
+
+## Installation
+
+**Coming soon** - Once MVP is complete, you'll be able to:
+
+```bash
+git clone https://github.com/yourusername/proof-of-monk
+cd proof-of-monk
+pip install -e .
+proof-of-monk init
+proof-of-monk serve
+```
+
+## Use Cases
+
+- **Writers**: Turn your tweet threads into articles
+- **Researchers**: Query your research notes and sources
+- **Journalers**: AI-powered journal search and insights
+- **Privacy Advocates**: Keep your data local, use AI anyway
+- **Bitcoin Monks**: Turn shitposts into signal 😉
+
+## The Vision: Proof-of-Self
+
+Once this works for Twitter archives, the goal is to make it work for **any personal data**:
+
+- Plug in your data sources (via adapters)
+- Connect your AI model (Claude, GPT, local)
+- Run it on your hardware (laptop, home server, whatever)
+- Access it from your network
+- Your personal AI that serves YOU
+
+This is what [@albert](https://twitter.com/AnthropicAI) should have become—not a cloud service, but a local agent working for you with your data.
+
+## Contributing
+
+Not ready for contributions yet, but watching this space! Once the MVP is working, we'll open it up for:
+- New data source adapters
+- Storage backend options
+- UI improvements
+- Documentation
+- Testing
+
+## License
+
+[TBD - Likely MIT or GPL to keep it free and open]
+
+## Related Projects
+
+- [Obsidian](https://obsidian.md/) - Great for notes, not AI-native
+- [Mem.ai](https://mem.ai/) - Similar idea, but cloud-based and closed
+- [Notion AI](https://www.notion.so/product/ai) - Cloud, not privacy-first
+- [MCP Servers](https://github.com/modelcontextprotocol/servers) - Official MCP examples
+
+## Why "Proof-of-Monk"?
+
+It's a play on Bitcoin's "proof-of-work." Just like miners prove they did work to secure the network, this proves you did the intellectual work by making your thoughts immediately useful. All those tweets, notes, and ideas become your personal knowledge base—your proof-of-work for your mind.
+
+Also, it's built by [@BitcoinMonk21](https://twitter.com/BitcoinMonk21), so it fits.
+
+---
+
+**Status**: 🚧 Under active development
+**Timeline**: MVP targeting December 2025
+**Star this repo** if you believe personal AI should respect privacy!

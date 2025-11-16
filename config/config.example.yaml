@@ -1,0 +1,97 @@
+# Proof-of-Monk Configuration
+# Copy this to config.yaml and customize for your setup
+
+# Data sources configuration
+sources:
+  # Twitter archive
+  twitter:
+    enabled: true
+    # Path to your extracted Twitter archive folder
+    # Download from: https://twitter.com/settings/download_your_data
+    archive_path: "~/Downloads/twitter-archive/data"
+    # What to index
+    index_tweets: true
+    index_bookmarks: true
+    index_likes: true
+    index_dms: false  # Privacy: DMs disabled by default
+    # Filters
+    exclude_retweets: false
+    min_date: null  # Format: "2020-01-01" or null for all
+    max_date: null
+
+  # Future data sources (Phase 2)
+  # markdown:
+  #   enabled: false
+  #   paths:
+  #     - "~/notes"
+  #     - "~/Documents/writing"
+
+# Database configuration
+database:
+  # Where to store the database
+  path: "./data/proof-of-monk.db"
+  # Enable full-text search
+  fts_enabled: true
+  # Backup settings
+  backup_enabled: true
+  backup_path: "./data/backups"
+
+# MCP Server configuration
+server:
+  # Server name (shown in Claude)
+  name: "Proof-of-Monk"
+  # Description
+  description: "Your personal knowledge base"
+  # Transport (stdio for Claude Desktop/Code)
+  transport: "stdio"
+  # Logging
+  log_level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  log_file: "./data/proof-of-monk.log"
+
+# Privacy settings
+privacy:
+  # Redact sensitive information
+  redact_phone_numbers: true
+  redact_email_addresses: false
+  redact_ip_addresses: true
+  # Exclude patterns (regex)
+  exclude_patterns:
+    - "password"
+    - "api[_-]?key"
+    - "secret"
+
+# Search settings
+search:
+  # Maximum results to return
+  max_results: 50
+  # Enable semantic search (requires sentence-transformers)
+  semantic_search: false
+  # Similarity threshold for semantic search (0.0-1.0)
+  similarity_threshold: 0.7
+
+# Personal settings
+personal:
+  # Your Twitter handle (for filtering)
+  twitter_handle: "BitcoinMonk21"
+  # Timezone for date parsing
+  timezone: "America/Los_Angeles"
+  # Your name (used in articles, optional)
+  name: "Bitcoin Monk"
+
+# Article/writing settings
+writing:
+  # Where to store drafts
+  drafts_path: "./data/drafts"
+  # Default article template
+  template: "bitcoin-signal"
+  # Auto-save interval (seconds)
+  autosave_interval: 60
+
+# Feature flags (for development)
+features:
+  # Enable experimental features
+  experimental: false
+  # Enable performance profiling
+  profiling: false
+  # Enable detailed logging
+  debug_mode: false
